@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programma{% endblock %}
+
+{% block body %}
+<div class="container-fluid programma__wrapper">
+    <div class="container mb-5">
+        <h1 class="my-5"> Programma </h1>
+
+
+        {# {{ dump(showUpcomingDates(programma)) }} #}
+
+        {% set x = showUpcomingDates(programma) %}
+
+        <h3 style="color:#b2fe00; font-weight: 700;">OKT</h3>
+
+        {% for item in x %}
+
+        {% if item.datum|date('m') == 09 %}
+        <h3>SEP</h3>
+        {% endif %}
+
+        
+        
+        <div class="row align-items-center justify-content-between my-4 py-2" style="border-bottom: 3px solid #bdb0ff;">
+            <div class="col-5  align-items-center">
+                <div class="row d-flex">
+                    <p class="col-md-6 me-5">{{item.datum|date('D d')}}  </p>
+                    <a class="col-md-6 link__prog" href="{{ path('optreden_show', { "id": item.id })}}"><h3>{{item.artiest.naam}}</h3></a>
+                </div>
+            </div>
+           
+            <div class="col-3 d-flex align-items-center justify-content-end">
+                <p class="me-2 me-md-5">€{{item.prijs}}</p>
+
+                <a class="btn btn-lg button__koop" href="{{item.ticketUrl}}">Tickets</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Locaties{% endblock %}
+
+{% block body %}
+
+<div class="locaties__bg  container-fluid">
+    <div class="locaties__wrapper container">
+        <h1>Locaties </h1>
+        
+        {# <div>
+            {{dump(locaties)}}
+        </div> #}
+
+        {% for locatie in locaties %}
+        <div class="container" >
+        <div class="locatie__item row" >
+            <div class="col-md-4">
+                <div>
+                    <h3>{{locatie.naam}}</h3>
+                    <a target="_blank" href="http://{{locatie.website}}">{{locatie.website}}</a>
+                </div>
+                <div>
+                    <p class="mt-5">{{locatie.adres}}</p>
+                    <p>{{locatie.postcode}} {{locatie.woonplaats}}</p>
+                    <p>{{locatie.telefoonnummer}}</p>
+                    <p class="mt-2">{{locatie.email}}</p>
+                    <p>{{locatie.website}}</p>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <img class="locatie__img" src="{{ locatie.afbeeldingUrl }}"/>
+                <img class="locatie__logo" src="{{ locatie.logoUrl }}"/>
+            </div>
+        </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

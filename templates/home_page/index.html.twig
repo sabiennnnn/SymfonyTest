@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<div class="container-fluid mb_8">
+    {% for optreden in data %}
+            <div class="optreden row d-flex mb-5 p-md-5 p-4">
+                {# <h2>{{ dump(optreden) }}</h2> #}
+                <div class="col-md-4 col-12 text-start">
+                    <div class="optreden__content">
+                        <h1 style="line-height:54px;">{{ optreden.artiest.naam }}</h1>
+                        <p>{{ optreden.datum|date('D d M Y') }}</p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-12 optreden__img text-end">
+                    <a href={{ path('optreden_show', { "id": optreden.id }) }}><img class="arrow__item" src="{{ asset('assets/img/iconmonstr-arrow-20.svg') }}"/></a>
+                    <img class="img__item mt-3 mt-md-0" src="{{ optreden.afbeeldingUrl }}"/> 
+                </div>
+            </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

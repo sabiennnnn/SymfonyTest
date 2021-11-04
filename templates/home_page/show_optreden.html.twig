@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+<div class="container-fluid">
+<div class="mx-auto wrapper__optreden__show  my-2 my-md-5">
+
+    {# <div>
+        <h2>{{dump(optreden)}}</h2>
+    </div> #}
+    <a href="{{ path('programma_list') }}" style="color:grey;">< terug naar programma</a>
+
+    <div class="optreden__show">
+        <img class="img__itemshow" src="{{ optreden.afbeeldingUrl }}"/> 
+    </div>
+
+
+    <div class="container">
+
+        <div class="itemshow__content row">
+
+            <div class="col-md-8">
+                <h1 class="mb-5">{{ optreden.artiest.naam }}</h1>
+                <h3  class="mb-3">{{ optreden.datum|date('D d M Y') }}</h3>
+                <p><strong>{{optreden.poppodium.naam}}</strong></p>
+                <p>{{ optreden.poppodium.adres }}</br>{{ optreden.poppodium.postcode }} {{ optreden.poppodium.woonplaats }}</p>
+                <h3 class="mt-5">Aanvang: {{ optreden.datum|date('H:i') }} uur</h3>
+                <p class="mt-5"><strong>{{optreden.omschrijving}}</strong></p>
+                <p class="my-2">{{optreden.artiest.omschrijving}}</p>
+            </div>
+
+            <div class="col-md-4 text-md-end p-3">
+                <a class="btn btn-lg button__koop mb-3" href="{{optreden.ticketUrl}}"><p>KOOP TICKETS</p></a>
+                <p>Prijs €{{optreden.prijs}}</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}
