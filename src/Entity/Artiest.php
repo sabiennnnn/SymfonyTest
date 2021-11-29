@@ -30,12 +30,12 @@ class Artiest
     private $genre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=400)
      */
     private $omschrijving;
 
     /**
-     * @ORM\Column(type="string", length=60)
+     * @ORM\Column(type="string", length=100)
      */
     private $afbeelding_url;
 

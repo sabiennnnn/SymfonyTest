@@ -25,8 +25,6 @@ class HomePageController extends AbstractController
         $data = $rep->getAllOptredens();
 
         return(["data" => $data, "page_title" => 'Home']);
-
-        
     }
 
     /**
@@ -41,6 +39,13 @@ class HomePageController extends AbstractController
 
 
         return(["optreden" => $data, "page_title" => $data->getArtiest()->getNaam()]);
+     }
+
+     public function saveOptreden($params) {
+
+        $rep = $this->getDoctrine()->getRepository(Optreden::class);
+        $data = $rep->saveOptreden($params);
+
      }
 
 
